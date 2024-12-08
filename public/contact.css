@@ -1,0 +1,119 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+    box-sizing: border-box;  
+}
+body{
+   
+    background-color:#09001d ;
+}
+.navbar-brand p {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+ .navbar-brand .span{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ .navbar-nav .nav-item  .nav-link{
+    font-size: 1.2rem;
+   color: white;
+    padding: 10px;
+    text-transform: capitalize;
+ }
+ 
+ .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+ }
+
+ .contact-detail{
+   
+    padding-top: 5vh;
+ 
+    text-align: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-items: center;
+
+}
+
+.contact-detail h3{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+   
+}
+.contact-detail .contact-box{
+    margin-top: 2vh;
+   display: inline-block;
+ justify-content: center;
+    width:30vh;
+    height: 22vh;
+    border: 2px solid blueviolet;
+    color: white;
+    background-color:#09001d;
+  
+ }
+ .contact-box{
+    margin-top: 5vh;
+    padding-top: 5vh;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+text-align: center;
+ }
+ .contact-box h5{
+    font-size: 1.5rem;
+    font-weight: 600;
+ }
+ .contact-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid blueviolet;
+    border-radius: 8px;
+  
+  }
+  .form-control::placeholder {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+  .contact-form input,
+  .contact-form textarea {
+    border: 2px solid white;
+    border-radius: 0; 
+    color:white;
+    background-color:#09001d;
+  }
+  .contact-form input:focus,
+.contact-form textarea:focus {
+    color: white; 
+    background-color:#09001d;
+    
+    border-color:2px solid white; }
+
+  .contact-form button {
+    height: 45px;
+    width: 200px;
+    color: blueviolet;
+    background-color: white;
+    
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    border: 2px solid blueviolet;
+  }
+  .contact-form button:hover{
+    background-color:blueviolet;
+    color: white;
+    border: 2px solid blueviolet;
+
+  }

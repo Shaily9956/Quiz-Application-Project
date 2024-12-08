@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <!-- Header of Home Page of Quiz Application -->
+    <div class="home">
+        <div class="container-fluid">
+            <header>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <!-- Logo -->
+                    <div class="navbar-brand d-flex align-items-center">
+                        <p class="ms-2 fw-bold">Quiz.</p>
+                    </div>
+                
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" 
+                    aria-label="Toggle navigation" style=" background-color: white;">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarMenu">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/quizApplication/home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/quizApplication/score">Scorecard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/quizApplication/contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <% if(!currUser) {%>
+                                    <button type="button" class="btn  btn-outline-primary me-2" id="signInButton">Sign In</button>
+                                    <button type="button" class="btn  btn-outline-secondary" id="signUpButton">Sign Up</button>
+                           <% } %> 
+                            </li>
+                            <li class="nav-item">
+                           <% if(currUser) {%>
+                            <form method="GET" action="http://localhost:8080/quizApplication/signOut">
+                                <button type="submit" class="btn btn-outline-danger " id="signOut" >Sign Out</button></form>
+                           
+                          <%   } %>
+                
+                        </li>
+                        </ul>
+                    </div>
+                </nav> 
+            </header>
+        </div>
+    </div>
+
+
+    
+    <div id="SignInModal">
+        <div class="signIn-content">
+           <div class="head-content d-flex align-items-center">
+            <h5 >Sign In</h5>
+            <i class="fa-solid fa-xmark"></i>
+           </div>
+           
+           <form id="SignForm" onsubmit="return signInValidateForm()"  method="POST" action="http://localhost:8080/quizApplication/signIn">
+            <div class="mb-3 input-container">
+                <i class="fas fa-user icon"></i>
+                <input type="text" class="form-control" id="fullName" name="username" placeholder="Full Name"required >
+                <span id="name-error1" class="error-message"></span>
+            </div>
+            <div class="mb-3 input-container">
+                <i class="fa fa-lock icon"></i> 
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <span id="password-error1" class="error-message"></span>
+            </div>
+            <button type="submit" id="formbtn" class="btn btn-primary w-100">Sign In</button>
+        </form>
+        
+            
+        </div>
+    </div>
+    <div id="SignUpModal">
+        <div class="signUp-content">
+           <div class="head-content d-flex align-items-center">
+            <h5 >Sign Up</h5>
+            <i class=" fa-solid fa-xmark"></i>
+           </div>
+           
+           <form id="SignUpForm" onsubmit="return signUpValidateForm()" method="POST" action="http://localhost:8080/quizApplication/signUp" >
+            <div class="mb-3 input-container">
+                <i class="fas fa-user icon"></i>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Full Name"required >
+                <span id="name-error" class="error-message"></span>
+            </div>
+        
+            <div class="mb-3 input-container">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" class="form-control" id="SignUpemail" name="email" placeholder="Email" required >
+                <span id="email-error" class="error-message"></span>
+            </div>
+        
+            <div class="mb-3 input-container">
+                <i class="fas fa-phone icon"></i>
+                <input type="tel" class="form-control" id="phone" name="phoneNumber" placeholder="Phone Number" required >
+                <span id="phone-error" class="error-message"></span>
+            </div>
+        
+            <div class="mb-3 input-container">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" class="form-control" id="SignUppassword"  name="password" placeholder="Password" required>
+                <span id="password-error" class="error-message"></span>
+            </div>
+        
+            <div class="mb-3 input-container">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" class="form-control" id="confirmPassword"name="confirmpassword" placeholder="Confirm Password" required>
+                <span id="confirmPassword-error" class="error-message"></span>
+            </div>
+        
+            <button type="submit" id="formbtn" class="btn btn-primary w-100" >Sign Up</button>
+        </form>
+        
+            
+        </div>
+    </div>
+  
+    <!-- Home Content of Quiz Applicationn -->
+
+<section class="content">
+<div class="container">
+<h3>Quiz Application</h3>
+<p>  Dive into the world of knowledge and challenge yourself with our engaging quizes <br>
+    Whether you’re a trivia enthusiast or just looking to learn something new, 
+    Quiz is the perfect place to test your skills and have fun!</p>
+</div>
+
+</section>
+<!-- Button to start the Quiz Application -->
+
+<button class="button" >Start Quiz</button>
+<div  id="guideContainer">
+   <h2>Quiz Guide</h2>
+    <p>1. Read each question carefully<br>
+       2. Select the best answer for each question<br>
+       3. You can navigate between questions<br>
+       4. Submit the quiz when completed<br>
+       5. Time For Each Question is 1 minute
+    </p>
+      
+    <div class="button-container">
+        <button id="exitBtn">Exit</button>
+        <% if(currUser) {%>
+        <form method="get" action="http://localhost:8080/quizApplication/quiz" style="margin: 0;">
+            <button id="continueBtn">Continue</button>
+        </form>
+        <% } else { %>
+            <button id="continueBtn" disabled>Continue</button>
+            <% } %>
+    </div>
+   
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="/Javascript/script.js"></script>
+</body>
+</html>
